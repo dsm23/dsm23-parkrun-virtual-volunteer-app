@@ -1,4 +1,8 @@
+import "@expo/metro-runtime";
+
 import { StyleSheet } from "react-native";
+import BarcodeScannerIcon from "@/src/assets/images/barcodeScanner.svg";
+import TimerIcon from "@/src/assets/images/timer.svg";
 
 import EditScreenInfo from "@/src/components/EditScreenInfo";
 import { Text, View } from "@/src/components/Themed";
@@ -12,6 +16,10 @@ export default function TabOneScreen() {
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
+
+      <BarcodeScannerIcon width={100} height={100} />
+      <TimerIcon width={100} height={100} />
+
       <EditScreenInfo path="app/(tabs)/index.tsx" />
     </View>
   );
