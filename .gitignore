@@ -3,6 +3,9 @@
 # dependencies
 node_modules/
 
+# lefthook
+lefthook-local.yml
+
 # Expo
 .expo/
 dist/
