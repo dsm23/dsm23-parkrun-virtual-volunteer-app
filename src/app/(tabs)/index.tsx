@@ -1,11 +1,10 @@
 import "@expo/metro-runtime";
 
+import { Link } from "expo-router";
 import { StyleSheet } from "react-native";
 import BarcodeScannerIcon from "~/assets/images/barcodeScanner.svg";
 import TimerIcon from "~/assets/images/timer.svg";
-
 import { Text, View } from "~/components/Themed";
-import { Link } from "expo-router";
 
 export default function TabOneScreen() {
   return (
