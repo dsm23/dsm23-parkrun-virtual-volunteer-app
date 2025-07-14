@@ -1,1 +1,6 @@
 nodeLinker: hoisted
+
+onlyBuiltDependencies:
+  - lefthook
+
+sideEffectsCache: false
