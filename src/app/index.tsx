@@ -15,7 +15,7 @@ export default function TabOneScreen() {
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <Link href="/scanner">
+      <Link href="/scan">
         <BarcodeScannerIcon width={100} height={100} />
       </Link>
       <Link href="/stopwatch">

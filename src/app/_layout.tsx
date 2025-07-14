@@ -1,13 +1,17 @@
 import { useEffect } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Link, Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import {
   DarkTheme,
   DefaultTheme,
   ThemeProvider,
 } from "@react-navigation/native";
+import { Pressable, Text } from "react-native";
+import SettingsLogo from "~/assets/images/settings.svg";
+
+// import Colors from "~/constants/Colors";
 
 import "react-native-reanimated";
 
@@ -18,10 +22,10 @@ export {
   ErrorBoundary,
 } from "expo-router";
 
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)",
-};
+// export const unstable_settings = {
+//   // Ensure that reloading on `/modal` keeps a back button present.
+//   initialRouteName: "(tabs)",
+// };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -56,7 +60,33 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="index"
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: "#ffa300",
+            },
+            headerTitle: (props) => (
+              <Text style={{ fontSize: 20, fontWeight: 600 }}>
+                Virtual Volunteer
+              </Text>
+            ),
+            headerRight: () => (
+              <Link href="/settings" asChild>
+                <Pressable>
+                  {({ pressed }) => (
+                    <SettingsLogo
+                      width={28}
+                      height={28}
+                      style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                    />
+                  )}
+                </Pressable>
+              </Link>
+            ),
+          }}
+        />
       </Stack>
     </ThemeProvider>
   );
