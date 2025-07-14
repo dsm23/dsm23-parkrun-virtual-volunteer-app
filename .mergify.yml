@@ -9,6 +9,7 @@ pull_request_rules:
       - check-success=dependency-review
       - check-success=format
       - check-success=gitleaks
+      - check-success=lint
       - check-success=pr-title
       - check-success=unit-testing
       - check-success=zizmor
@@ -25,6 +26,7 @@ pull_request_rules:
       - check-success=dependency-review
       - check-success=format
       - check-success=gitleaks
+      - check-success=lint
       - check-success=pr-title
       - check-success=unit-testing
       - check-success=zizmor
@@ -41,6 +43,7 @@ pull_request_rules:
       - check-success=dependency-review
       - check-success=format
       - check-success=gitleaks
+      - check-success=lint
       - check-success=pr-title
       - check-success=unit-testing
       - check-success=zizmor
