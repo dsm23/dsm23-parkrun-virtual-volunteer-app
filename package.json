@@ -9,10 +9,7 @@
     "web": "expo start --web",
     "fmt": "prettier . --write",
     "fmt.check": "prettier . --check",
-    "test": "jest --watchAll"
-  },
-  "jest": {
-    "preset": "jest-expo"
+    "test": "jest"
   },
   "dependencies": {
     "@expo/vector-icons": "14.1.0",
@@ -35,6 +32,8 @@
   },
   "devDependencies": {
     "@babel/core": "7.25.2",
+    "@testing-library/react-native": "13.2.0",
+    "@types/jest": "30.0.0",
     "@types/react": "19.0.10",
     "commitizen": "4.3.1",
     "cz-conventional-changelog": "3.3.0",
