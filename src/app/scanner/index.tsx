@@ -1,30 +1,21 @@
-import "@expo/metro-runtime";
-
 import { StyleSheet } from "react-native";
-import BarcodeScannerIcon from "@/src/assets/images/barcodeScanner.svg";
-import TimerIcon from "@/src/assets/images/timer.svg";
 
+import EditScreenInfo from "@/src/components/EditScreenInfo";
 import { Text, View } from "@/src/components/Themed";
-import { Link } from "expo-router";
 
-export default function TabOneScreen() {
+const ScannerScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
+      <Text style={styles.title}>Scanner</Text>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <Link href="/scanner">
-        <BarcodeScannerIcon width={100} height={100} />
-      </Link>
-      <Link href="/stopwatch">
-        <TimerIcon width={100} height={100} />
-      </Link>
+      <EditScreenInfo path="app/(tabs)/two.tsx" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -42,3 +33,5 @@ const styles = StyleSheet.create({
     width: "80%",
   },
 });
+
+export default ScannerScreen;
