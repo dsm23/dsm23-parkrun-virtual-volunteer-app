@@ -9,17 +9,14 @@ import { Text, View } from "~/components/Themed";
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <Link href="/scan">
-        <BarcodeScannerIcon width={100} height={100} />
+      <Text role="heading" style={styles.title}>
+        Home
+      </Text>
+      <Link href="/scan" style={styles.scannerLink}>
+        <BarcodeScannerIcon width={100} height={100} fill="#fff" />
       </Link>
-      <Link href="/stopwatch">
-        <TimerIcon width={100} height={100} />
+      <Link href="/stopwatch" style={styles.stopwatchLink}>
+        <TimerIcon width={100} height={100} fill="#fff" />
       </Link>
     </View>
   );
@@ -28,16 +25,29 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
   title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
+    position: "absolute",
+    width: 1,
     height: 1,
-    width: "80%",
+    padding: 0,
+    margin: -1,
+    overflow: "hidden",
+    clip: "rect(0, 0, 0, 0)",
+    borderWidth: 0,
+  },
+  scannerLink: {
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#00ceae",
+  },
+  stopwatchLink: {
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#2b233d",
   },
 });
