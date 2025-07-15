@@ -36,5 +36,11 @@ yarn-error.*
 # local env files
 .env*.local
 
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
 # typescript
 *.tsbuildinfo

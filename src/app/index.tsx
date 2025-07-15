@@ -1,6 +1,7 @@
 import "@expo/metro-runtime";
 
 import { Link } from "expo-router";
+import Head from "expo-router/head";
 import { StyleSheet } from "react-native";
 import BarcodeScannerIcon from "~/assets/images/barcodeScanner.svg";
 import TimerIcon from "~/assets/images/timer.svg";
@@ -8,14 +9,25 @@ import { Text, View } from "~/components/Themed";
 
 export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
+    <View role="main" style={styles.container}>
+      <Head>
+        <title>David Murdoch{"'"}s Virtual Volunteer App</title>
+        <meta
+          name="description"
+          content="A clone of Parkrun's official virtual volunteer app written in Expo"
+        />
+      </Head>
       <Text role="heading" style={styles.title}>
         Home
       </Text>
-      <Link href="/scan" style={styles.scannerLink}>
+      <Link href="/scan" style={styles.scannerLink} aria-label="Scanner">
         <BarcodeScannerIcon width={100} height={100} fill="#fff" />
       </Link>
-      <Link href="/stopwatch" style={styles.stopwatchLink}>
+      <Link
+        href="/stopwatch"
+        style={styles.stopwatchLink}
+        aria-label="Stopwatch"
+      >
         <TimerIcon width={100} height={100} fill="#fff" />
       </Link>
     </View>

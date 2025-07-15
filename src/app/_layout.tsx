@@ -63,17 +63,57 @@ function RootLayoutNav() {
         <Stack.Screen
           name="index"
           options={{
-            headerShown: true,
             headerStyle: {
               backgroundColor: "#ffa300",
             },
-            headerTitle: (props) => (
+
+            // header: (props) => (
+            //   <View
+            //     {...props}
+            //     role="banner"
+            //     style={{
+            //       backgroundColor: "#ffa300",
+            //       display: "flex",
+            //       // alignItems: "center",
+            //       justifyContent: "space-between",
+            //       flexDirection: "row",
+            //       padding: 16,
+            //       flex: 1,
+            //     }}
+            //   >
+            //     <Text style={{ fontSize: 20, fontWeight: 600 }}>
+            //       Virtual Volunteer
+            //     </Text>
+            //     <Link href="/settings" asChild aria-label="Settings">
+            //       <Pressable>
+            //         {({ pressed }) => (
+            //           <SettingsLogo
+            //             width={28}
+            //             height={28}
+            //             style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+            //           />
+            //         )}
+            //       </Pressable>
+            //     </Link>
+            //   </View>
+            // ),
+
+            // headerBackground: () => (
+            //   <View
+            //     role="banner"
+            //     style={{
+            //       backgroundColor: "#ffa300",
+            //       flex: 1,
+            //     }}
+            //   />
+            // ),
+            headerTitle: () => (
               <Text style={{ fontSize: 20, fontWeight: 600 }}>
                 Virtual Volunteer
               </Text>
             ),
             headerRight: () => (
-              <Link href="/settings" asChild>
+              <Link href="/settings" asChild aria-label="Settings">
                 <Pressable>
                   {({ pressed }) => (
                     <SettingsLogo
