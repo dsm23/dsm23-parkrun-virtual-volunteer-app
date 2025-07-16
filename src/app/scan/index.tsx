@@ -1,5 +1,5 @@
 import { Link, Stack } from "expo-router";
-import { Button, Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
 import EditScreenInfo from "~/components/EditScreenInfo";
 import { Text, View } from "~/components/Themed";
 
@@ -20,12 +20,18 @@ const ScannerScreen = () => {
             <Link href="/settings" asChild>
               <Pressable>
                 {({ pressed }) => (
-                  <Button
-                    // color={Colors[colorScheme ?? "light"].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                  <Text
+                    role="button"
+                    style={{
+                      marginRight: 15,
+                      opacity: pressed ? 0.5 : 1,
+                      backgroundColor: "#FFDA4F",
+                      padding: 12,
+                      cursor: "pointer",
+                    }}
                   >
-                    Reset
-                  </Button>
+                    RESET
+                  </Text>
                 )}
               </Pressable>
             </Link>
