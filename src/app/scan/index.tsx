@@ -1,9 +1,30 @@
+import { useRef } from "react";
+import { CameraView, useCameraPermissions } from "expo-camera";
 import { Link, Stack } from "expo-router";
+import type { CameraViewProps } from "expo-camera";
 import { Pressable, StyleSheet } from "react-native";
-import EditScreenInfo from "~/components/EditScreenInfo";
 import { Text, View } from "~/components/Themed";
 
 const ScannerScreen = () => {
+  /* eslint-disable */
+  const [status, requestPermission] = useCameraPermissions();
+  const ref = useRef<CameraView>(null);
+  /* eslint-enable */
+
+  const handleBarcodeScanned: CameraViewProps["onBarcodeScanned"] = ({
+    type,
+    data,
+  }) => {
+    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+  };
+
+  // if (hasPermission === null) {
+  //   return <Text>Requesting for camera permission</Text>;
+  // }
+  // if (hasPermission === false) {
+  //   return <Text>No access to camera</Text>;
+  // }
+
   return (
     <View style={styles.container}>
       <Stack.Screen
@@ -40,12 +61,27 @@ const ScannerScreen = () => {
       />
 
       <Text style={styles.title}>Scanner</Text>
+      <View style={{ flex: 1 }}>
+        <CameraView
+          onBarcodeScanned={handleBarcodeScanned}
+          barcodeScannerSettings={{
+            barcodeTypes: ["qr", "pdf417"],
+          }}
+          style={StyleSheet.absoluteFillObject}
+        />
+      </View>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
+      <View
+        style={{
+          flex: 1,
+        }}
+      >
+        hello
+      </View>
     </View>
   );
 };
