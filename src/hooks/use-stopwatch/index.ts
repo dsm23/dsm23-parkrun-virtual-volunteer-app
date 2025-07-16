@@ -78,7 +78,7 @@ const useStopwatch = ({
       return [
         ...prevResults,
         {
-          id: crypto.randomUUID(),
+          id: Math.random().toString(12),
           time,
           formattedTime: `${minutes}:${seconds}:${formattedMilliseconds}`,
         },
