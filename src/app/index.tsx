@@ -2,7 +2,7 @@ import "@expo/metro-runtime";
 
 import { Link } from "expo-router";
 import Head from "expo-router/head";
-import { StyleSheet } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
 import BarcodeScannerIcon from "~/assets/images/barcodeScanner.svg";
 import TimerIcon from "~/assets/images/timer.svg";
 import { Text, View } from "~/components/Themed";
@@ -20,15 +20,25 @@ export default function TabOneScreen() {
       <Text role="heading" style={styles.title}>
         Home
       </Text>
-      <Link href="/scan" style={styles.scannerLink} aria-label="Scanner">
-        <BarcodeScannerIcon width={100} height={100} fill="#fff" />
+      <Link
+        href="/scan"
+        style={styles.scannerLink}
+        aria-label="Scanner"
+        asChild
+      >
+        <Pressable>
+          <BarcodeScannerIcon width={100} height={100} fill="#fff" />
+        </Pressable>
       </Link>
       <Link
         href="/stopwatch"
         style={styles.stopwatchLink}
         aria-label="Stopwatch"
+        asChild
       >
-        <TimerIcon width={100} height={100} fill="#fff" />
+        <Pressable>
+          <TimerIcon width={100} height={100} fill="#fff" />
+        </Pressable>
       </Link>
     </View>
   );
@@ -50,14 +60,12 @@ const styles = StyleSheet.create({
   },
   scannerLink: {
     flex: 1,
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#00ceae",
   },
   stopwatchLink: {
     flex: 1,
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#2b233d",
