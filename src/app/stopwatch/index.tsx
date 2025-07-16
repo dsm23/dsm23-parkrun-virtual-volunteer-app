@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import { Button, Pressable, StyleSheet, VirtualizedList } from "react-native";
+import PlayIcon from "~/assets/images/play.svg";
 import TimerIcon from "~/assets/images/timer.svg";
 import { Text, View } from "~/components/Themed";
 import useStopwatch from "~/hooks/use-stopwatch";
@@ -73,7 +74,11 @@ const StopwatchScreen = () => {
       </View>
 
       <Pressable style={styles.timerContainer} onPress={startAndTakeResults}>
-        <TimerIcon width={100} height={100} fill="#fff" />
+        {isRunning ? (
+          <TimerIcon width={100} height={100} fill="#fff" />
+        ) : (
+          <PlayIcon width={100} height={100} fill="#fff" />
+        )}
       </Pressable>
     </View>
   );
