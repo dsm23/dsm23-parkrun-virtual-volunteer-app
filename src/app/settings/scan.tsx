@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { CameraView, useCameraPermissions } from "expo-camera";
-import * as Haptics from "expo-haptics";
+import { impactAsync, ImpactFeedbackStyle } from "expo-haptics";
 import { Stack, useRouter } from "expo-router";
 import type { CameraViewProps } from "expo-camera";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -23,7 +23,7 @@ const ScannerScreen = () => {
 
       await AsyncStorage.setItem("parkrunId", data);
 
-      await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      await impactAsync(ImpactFeedbackStyle.Heavy);
 
       router.back();
     } catch {
