@@ -15,13 +15,15 @@ const ScannerScreen = () => {
     try {
       const value = await AsyncStorage.getItem("parkrunId");
 
-      if (!value) {
+      if (value) {
         setParkrunId(value);
       }
     } catch {
       alert("Failed to fetch the parkrunId from storage");
     }
   };
+
+  const handleRemoveParkrunId = () => void setParkrunId(null);
 
   useEffect(() => {
     getParkrunIdFromStorage();
@@ -47,16 +49,16 @@ const ScannerScreen = () => {
         {parkrunId ? (
           <>
             <CheckIcon width={20} height={20} fill="#00ceae" />
-            <Text style={styles.idText}>A1129502</Text>
-            <CrossIcon
-              style={styles.cross}
-              width={20}
-              height={20}
-              color="#9CA3AF"
-            />
+            <Text style={styles.idText}>{parkrunId}</Text>
+            <Pressable
+              style={styles.crossContainer}
+              onPress={handleRemoveParkrunId}
+            >
+              <CrossIcon width={20} height={20} color="#9CA3AF" />
+            </Pressable>
           </>
         ) : (
-          <Link href="/" style={styles.link} asChild>
+          <Link href="/settings/scan" style={styles.link} asChild>
             <Pressable>
               <BarcodeScannerIcon width={20} height={20} fill="#00ceae" />
               <Text style={styles.idText}>Scan Now</Text>
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  cross: {
+  crossContainer: {
     marginLeft: "auto",
   },
   separator: {
