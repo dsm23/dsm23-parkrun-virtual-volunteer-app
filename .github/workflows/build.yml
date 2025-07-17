@@ -33,4 +33,4 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build check
-        run: pnpm exec expo export -p web
+        run: pnpm exec expo export
