@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { CameraView, useCameraPermissions } from "expo-camera";
+import * as Haptics from "expo-haptics";
 import { Stack, useRouter } from "expo-router";
 import type { CameraViewProps } from "expo-camera";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -22,7 +23,9 @@ const ScannerScreen = () => {
 
       await AsyncStorage.setItem("parkrunId", data);
 
-      return router.back();
+      await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+
+      router.back();
     } catch {
       alert("Failed to add the parkrunId to storage");
     }
