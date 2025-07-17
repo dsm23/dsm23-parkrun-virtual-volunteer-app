@@ -1,3 +1,4 @@
+import { impactAsync, ImpactFeedbackStyle } from "expo-haptics";
 import { Stack } from "expo-router";
 import { Button, Pressable, StyleSheet, VirtualizedList } from "react-native";
 import PlayIcon from "~/assets/images/play.svg";
@@ -24,6 +25,12 @@ const StopwatchScreen = () => {
     seconds,
     milliseconds,
   } = useStopwatch();
+
+  const handlePressCircleIconSection = async () => {
+    startAndTakeResults();
+
+    await impactAsync(ImpactFeedbackStyle.Heavy);
+  };
 
   return (
     <View style={styles.container}>
@@ -52,10 +59,10 @@ const StopwatchScreen = () => {
           Stopwatch
         </Text>
         <View style={{ padding: 16, flexDirection: "row" }}>
-          <Text style={{ fontSize: 18, fontWeight: 600, flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 600, flex: 2 }}>
             Position
           </Text>
-          <Text style={{ fontSize: 18, fontWeight: 600, flex: 2 }}>Time</Text>
+          <Text style={{ fontSize: 18, fontWeight: 600, flex: 3 }}>Time</Text>
         </View>
 
         <View
@@ -65,15 +72,25 @@ const StopwatchScreen = () => {
         />
 
         <VirtualizedList<Result>
+          style={styles.list}
           // initialNumToRender={10}
-          renderItem={({ item }) => <Text>{item.formattedTime}</Text>}
+          renderItem={({ item, index }) => (
+            <View style={styles.listItem}>
+              <Text style={{ flex: 2 }}>{results.length - index}</Text>
+
+              <Text style={{ flex: 3 }}>{item.formattedTime}</Text>
+            </View>
+          )}
           keyExtractor={(item) => item.id}
           getItemCount={() => results.length}
-          getItem={(_, index) => results[index]}
+          getItem={(_, index) => results.at(-index - 1)!}
         />
       </View>
 
-      <Pressable style={styles.timerContainer} onPress={startAndTakeResults}>
+      <Pressable
+        style={styles.timerContainer}
+        onPress={handlePressCircleIconSection}
+      >
         {isRunning ? (
           <TimerIcon width={100} height={100} fill="#fff" />
         ) : (
@@ -105,6 +122,12 @@ const styles = StyleSheet.create({
   },
   tableContainer: {
     flex: 1,
+  },
+  list: {
+    marginHorizontal: 16,
+  },
+  listItem: {
+    flexDirection: "row",
   },
   timerContainer: {
     flex: 1,
