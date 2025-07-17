@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { CameraView, useCameraPermissions } from "expo-camera";
+import { useKeepAwake } from "expo-keep-awake";
 import { Link, Stack } from "expo-router";
 import type { CameraViewProps } from "expo-camera";
 import { Pressable, StyleSheet } from "react-native";
@@ -10,6 +11,8 @@ const ScannerScreen = () => {
   const [status, requestPermission] = useCameraPermissions();
   const ref = useRef<CameraView>(null);
   /* eslint-enable */
+
+  useKeepAwake();
 
   const handleBarcodeScanned: CameraViewProps["onBarcodeScanned"] = ({
     type,

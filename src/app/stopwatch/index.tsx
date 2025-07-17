@@ -1,4 +1,5 @@
 import { impactAsync, ImpactFeedbackStyle } from "expo-haptics";
+import { useKeepAwake } from "expo-keep-awake";
 import { Stack } from "expo-router";
 import { Button, Pressable, StyleSheet, VirtualizedList } from "react-native";
 import PlayIcon from "~/assets/images/play.svg";
@@ -25,6 +26,8 @@ const StopwatchScreen = () => {
     seconds,
     milliseconds,
   } = useStopwatch();
+
+  useKeepAwake();
 
   const handlePressCircleIconSection = async () => {
     startAndTakeResults();
