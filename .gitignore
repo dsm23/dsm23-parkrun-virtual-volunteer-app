@@ -11,6 +11,8 @@ lefthook-local.yml
 dist/
 web-build/
 expo-env.d.ts
+android/
+ios/
 
 # Native
 .kotlin/
