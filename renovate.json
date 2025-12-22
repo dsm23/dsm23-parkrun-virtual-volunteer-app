@@ -35,10 +35,6 @@
       "groupName": "react packages"
     },
     {
-      "extends": ["packages:stylelint"],
-      "groupName": "stylelint packages"
-    },
-    {
       "groupName": "playwright monorepo",
       "matchPackageNames": [
         "playwright",
