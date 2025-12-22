@@ -45,7 +45,7 @@
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "@commitlint/types": "19.8.1",
-    "@expo/metro-runtime": "5.0.4",
+    "@expo/metro-runtime": "5.0.5",
     "@ianvs/prettier-plugin-sort-imports": "4.5.1",
     "@playwright/test": "1.54.1",
     "@testing-library/react-native": "13.2.0",
