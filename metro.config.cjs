@@ -10,8 +10,7 @@ defaultConfig.resolver.assetExts = defaultConfig.resolver.assetExts.filter(
 defaultConfig.resolver.sourceExts.push("svg");
 
 // Add a custom babel transformer which converts svg files to React components.
-defaultConfig.transformer.babelTransformerPath = require.resolve(
-  "react-native-svg-transformer",
-);
+defaultConfig.transformer.babelTransformerPath =
+  require.resolve("react-native-svg-transformer");
 
 module.exports = defaultConfig;
