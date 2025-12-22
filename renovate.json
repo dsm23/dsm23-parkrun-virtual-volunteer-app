@@ -1,12 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
+    "config:best-practices",
     "customManagers:biomeVersions",
     "group:jsUnitTest",
     "helpers:pinGitHubActionDigestsToSemver",
+    "security:openssf-scorecard",
     ":approveMajorUpdates",
-    ":configMigration",
     ":enableVulnerabilityAlerts",
     ":pinAllExceptPeerDependencies"
   ],
