@@ -23,6 +23,12 @@
   ],
   "packageRules": [
     {
+      "description": "Disable all production dependencies",
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["dependencies"],
+      "enabled": false
+    },
+    {
       "extends": ["packages:eslint"],
       "groupName": "eslint packages"
     },
@@ -43,7 +49,6 @@
       ]
     }
   ],
-  "enabledManagers": ["github-actions"],
   "rebaseWhen": "conflicted",
   "patch": {
     "rebaseWhen": "behind-base-branch"
