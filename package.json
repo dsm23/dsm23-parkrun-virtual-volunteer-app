@@ -42,8 +42,8 @@
   "devDependencies": {
     "@axe-core/playwright": "4.11.0",
     "@babel/core": "7.28.5",
-    "@commitlint/cli": "20.2.0",
-    "@commitlint/config-conventional": "20.2.0",
+    "@commitlint/cli": "20.3.0",
+    "@commitlint/config-conventional": "20.3.0",
     "@commitlint/types": "20.2.0",
     "@expo/metro-runtime": "5.0.5",
     "@ianvs/prettier-plugin-sort-imports": "4.7.0",
