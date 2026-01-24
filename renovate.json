@@ -21,6 +21,8 @@
       ]
     }
   ],
+  "internalChecksFilter": "strict",
+  "minimumReleaseAge": "3 days",
   "packageRules": [
     {
       "description": "Disable all production dependencies",
